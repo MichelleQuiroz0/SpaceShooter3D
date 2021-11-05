@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -11,7 +12,7 @@ public class PlayerController2 : MonoBehaviour
     private float Vinput;
 
 
-    public int playerHealth = 10;
+    public int playerHealth = 1;
 
 
     public PlayerControl playerAction;
@@ -19,9 +20,9 @@ public class PlayerController2 : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-       
+        
             playerRB = GetComponent<Rigidbody>();
-   
+ 
     }
     
 
@@ -33,10 +34,16 @@ public class PlayerController2 : MonoBehaviour
 
             Debug.Log($"{playerHealth}");
 
+        
             if (playerHealth == 0)
             {
-                Destroy(gameObject);
+                Debug.Log("PlayerDestroyed!");
+                gameObject.SetActive(false);
+                
             }
+        
+
+        
    
     }
 
@@ -51,12 +58,33 @@ public class PlayerController2 : MonoBehaviour
 
     private void OnEnable()
     {
-        playerAction.Player.Enable();
+
+        try 
+        { 
+            playerAction.Player.Enable();
+        }
+
+        catch (NullReferenceException ex)
+        {
+            return;
+        }
     }
 
     private void OnDisable()
     {
-        playerAction.Player.Disable();
+
+        try
+        {
+            playerAction.Player.Enable();
+        }
+
+        catch (NullReferenceException ex)
+        {
+            return;
+        }
+
+
+
     }
    
     void CheckBoundaries()
