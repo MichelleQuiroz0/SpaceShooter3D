@@ -1,0 +1,33 @@
+{
+    "name": "GunControl",
+    "maps": [
+        {
+            "name": "GunControlMap",
+            "id": "f885704b-71e2-4b89-8c9f-415b97e858b5",
+            "actions": [
+                {
+                    "name": "Fire",
+                    "type": "Button",
+                    "id": "97229bc0-e399-49de-b187-b6e600dd0d1e",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": ""
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "046c7c32-c4ff-4fd4-ac96-e7c9635d5475",
+                    "path": "<Keyboard>/space",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Fire",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
+        }
+    ],
+    "controlSchemes": []
+}
